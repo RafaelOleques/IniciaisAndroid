@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="example.com.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/all_fragments_label"
         tools:layout="@layout/fragment_first">
 
         <action
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="example.com.SecondFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/all_fragments_label"
         tools:layout="@layout/fragment_second">
 
         <action
@@ -26,7 +26,7 @@
             app:destination="@id/FirstFragment" />
         <argument
             android:name="message"
-            app:argType="string"
-            android:defaultValue="default" />
+            android:defaultValue="default"
+            app:argType="string" />
     </fragment>
 </navigation>
