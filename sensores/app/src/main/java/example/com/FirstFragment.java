@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -25,7 +26,7 @@ public class FirstFragment extends Fragment implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
-    TextView xValue, yValue, zValue;
+    EditText xValue, yValue, zValue;
     private float first_x, first_y, first_z;
     private boolean first_change = false, mudar_pagina = false;
 
@@ -44,9 +45,9 @@ public class FirstFragment extends Fragment implements SensorEventListener {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        xValue = (TextView) getView().findViewById(R.id.xValue);
-        yValue = (TextView) getView().findViewById(R.id.yValue);
-        zValue = (TextView) getView().findViewById(R.id.zValue);
+        xValue = (EditText) getView().findViewById(R.id.xValue);
+        yValue = (EditText) getView().findViewById(R.id.yValue);
+        zValue = (EditText) getView().findViewById(R.id.zValue);
 
 
         sensorManager = (SensorManager)
@@ -66,6 +67,7 @@ public class FirstFragment extends Fragment implements SensorEventListener {
 
                 FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment();
                 action.setMessage("Mudança de tela!");
+                mudar_pagina = true;
 
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(action);
@@ -102,6 +104,11 @@ public class FirstFragment extends Fragment implements SensorEventListener {
                     first_y = linear_acceleration[1];
                     first_z = linear_acceleration[2];
                     first_change = true;
+
+                    xValue.setText("x: " + linear_acceleration[0]);
+                    yValue.setText("y: " + linear_acceleration[1]);
+                    zValue.setText("z: " + linear_acceleration[2]);
+
                 } else if (Math.abs(first_x - linear_acceleration[0]) > 2 ||
                         Math.abs(first_y - linear_acceleration[1]) > 2 ||
                         Math.abs(first_z - linear_acceleration[2]) > 2) {
@@ -113,10 +120,6 @@ public class FirstFragment extends Fragment implements SensorEventListener {
                     NavHostFragment.findNavController(FirstFragment.this)
                             .navigate(action);
                 }
-
-                xValue.setText("x: " + linear_acceleration[0]);
-                yValue.setText("y: " + linear_acceleration[1]);
-                zValue.setText("z: " + linear_acceleration[2]);
             }
         }
 

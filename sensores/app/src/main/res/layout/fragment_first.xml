@@ -17,28 +17,35 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/xValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:text="X"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />/>
 
-    <TextView
+    <EditText
         android:id="@+id/yValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:text="Y"
         app:layout_constraintStart_toEndOf="@+id/xValue"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />/>
 
-    <TextView
+    <EditText
         android:id="@+id/zValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="112dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:text="Z"
         app:layout_constraintStart_toEndOf="@+id/yValue"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
